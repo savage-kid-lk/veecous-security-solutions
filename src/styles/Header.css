@@ -1,0 +1,168 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: transparent;
+  transition: all 0.4s ease;
+  border-bottom: 1px solid transparent;
+}
+
+/* Scrolled State: Deep Navy + Glass Blur */
+.header.scrolled {
+  background: rgba(10, 25, 47, 0.9); /* Tactical Navy */
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 90px;
+  transition: height 0.3s ease;
+}
+
+.header.scrolled .header-content {
+  height: 70px; /* Shrinks on scroll */
+}
+
+/* --- Logo Styling --- */
+.logo {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+
+.logo-placeholder {
+  display: flex;
+  align-items: center; /* Aligns image and text vertically */
+  gap: 15px; /* Space between image and text */
+}
+
+.logo-image {
+  width: 50px;       /* Fixed width */
+  height: 50px;      /* Fixed height */
+  object-fit: cover; /* Ensures image doesn't stretch */
+  border-radius: 50%; /* Makes it a circle */
+  border: 2px solid var(--blue-medium); /* Blue border around the circle */
+  transition: all 0.3s ease;
+}
+
+/* Slightly smaller logo on scroll */
+.header.scrolled .logo-image {
+  width: 40px;
+  height: 40px;
+}
+
+.logo-text-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.logo-text {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--white);
+  letter-spacing: 1px;
+  line-height: 1;
+}
+
+.logo-highlight {
+  color: var(--blue-light);
+}
+
+.logo-subtext {
+  display: block;
+  font-size: 0.6rem;
+  color: var(--blue-medium);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+/* --- Navigation --- */
+.nav-list {
+  display: flex;
+  list-style: none;
+  gap: 30px;
+}
+
+.nav-link {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.9rem;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--blue-light);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--blue-light);
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+  width: 100%;
+}
+
+/* --- Mobile Menu --- */
+.mobile-menu-btn {
+  display: none;
+  flex-direction: column;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.mobile-menu-btn span {
+  width: 25px;
+  height: 2px;
+  background: var(--white);
+  margin: 3px 0;
+  transition: 0.3s;
+}
+
+@media (max-width: 768px) {
+  .logo-text { font-size: 1.2rem; }
+  .logo-image { width: 40px; height: 40px; }
+  
+  .mobile-menu-btn { display: flex; }
+
+  .nav {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 85%;
+    height: 100vh;
+    background: var(--navy-header);
+    padding-top: 100px;
+    padding-left: 30px;
+    transition: left 0.3s ease;
+    box-shadow: 10px 0 30px rgba(0,0,0,0.8);
+  }
+
+  .nav.open { left: 0; }
+
+  .nav-list {
+    flex-direction: column;
+    gap: 25px;
+  }
+
+  .nav-link { font-size: 1.2rem; }
+}

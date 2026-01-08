@@ -1,0 +1,66 @@
+.floating-icons {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: flex-end;
+}
+
+.floating-icons-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.floating-icon {
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: white;
+  font-size: 1.4rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.floating-icon:hover {
+  transform: scale(1.15);
+}
+
+.phone {
+  background: linear-gradient(135deg, #128C7E, #25D366);
+}
+
+.email {
+  background: linear-gradient(135deg, #c62828, #e53935);
+}
+
+.whatsapp {
+  background: #25D366;
+}
+
+.scroll-top {
+  background: var(--dark-grey);
+  border: 1px solid var(--blue-medium);
+  color: var(--blue-light);
+  width: 45px;
+  height: 45px;
+  font-size: 1rem;
+}
+
+.scroll-top:hover {
+  background: var(--blue-medium);
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .floating-icons { bottom: 20px; right: 20px; }
+  .floating-icon { width: 50px; height: 50px; }
+}

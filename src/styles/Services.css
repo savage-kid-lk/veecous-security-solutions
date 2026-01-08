@@ -1,0 +1,116 @@
+.services-list {
+  background-color: var(--black-primary);
+  padding: 80px 0;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.service-item {
+  background: var(--black-secondary);
+  border: 1px solid var(--border-grey);
+  border-radius: 8px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.service-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--blue-medium);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.service-item:hover {
+  border-color: var(--blue-medium);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+.service-item:hover::before {
+  opacity: 1;
+}
+
+.service-icon-container {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, var(--blue-dark), var(--dark-grey));
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 25px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.service-icon {
+  font-size: 2rem;
+  color: white;
+}
+
+.service-title {
+  color: var(--white);
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.service-description {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+  line-height: 1.6;
+  flex-grow: 1;
+}
+
+.service-features {
+  list-style: none;
+  background: var(--dark-grey);
+  padding: 20px;
+  border-radius: 6px;
+  margin-bottom: 25px;
+}
+
+.service-features li {
+  color: #ddd;
+  font-size: 0.85rem;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.feature-check {
+  color: var(--blue-light);
+  font-weight: bold;
+}
+
+.service-inquiry-btn {
+  width: 100%;
+  padding: 12px;
+  background: transparent;
+  border: 1px solid var(--blue-medium);
+  color: var(--blue-medium);
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.service-inquiry-btn:hover {
+  background: var(--blue-medium);
+  color: white;
+}
