@@ -18,7 +18,7 @@ const Training = () => {
         description="Accredited firearms competency and security grade training. Equip yourself with the skills needed for the industry."
         backgroundImage="https://images.unsplash.com/photo-1595590424283-b8f17842773f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80"
         height="50vh"
-        showButtons={false}
+        showButtons={true}
       />
 
       {/* PSIRA Grades Section */}
@@ -26,6 +26,26 @@ const Training = () => {
         <div className="container">
           <div className="section-header scroll-hidden">
              <h2 className="section-title">PSIRA Grades</h2>
+             
+             {/* New Training Images Gallery */}
+             <div className="training-gallery">
+               <img 
+                 src="https://images.unsplash.com/photo-1595590424283-b8f17842773f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" 
+                 alt="Security Officer in Uniform" 
+                 className="train-img"
+               />
+               <img 
+                 src="https://images.pexels.com/photos/6090915/pexels-photo-6090915.jpeg" 
+                 alt="Tactical Training" 
+                 className="train-img"
+               />
+               <img 
+                 src="https://images.pexels.com/photos/5202424/pexels-photo-5202424.jpeg" 
+                 alt="Security Team Briefing" 
+                 className="train-img"
+               />
+             </div>
+
              <p className="section-subtitle">Accredited Security Training Levels</p>
           </div>
           

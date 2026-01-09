@@ -7,6 +7,8 @@ import {
   FaUsers, FaCar, FaIdBadge, FaClipboardCheck 
 } from 'react-icons/fa';
 import '../styles/Services.css';
+import { GiCctvCamera } from "react-icons/gi";
+import { TbVip } from "react-icons/tb";
 
 const Services = () => {
   useScrollObserver();
@@ -26,7 +28,7 @@ const Services = () => {
       features: ['Access Control', 'Perimeter Patrols', 'Daily Occurrence Reports']
     },
     {
-      icon: <FaUserTie />,
+      icon: <TbVip />,
       title: 'VIP Protection',
       description: 'Close protection officers (CPO) ensuring safety for high-profile individuals and executives.',
       features: ['Route Planning', 'Threat Assessment', 'Discreet Protection']
@@ -60,6 +62,12 @@ const Services = () => {
       title: 'Consultant Services',
       description: 'Expert security auditing and risk assessment for businesses and private estates.',
       features: ['Site Risk Analysis', 'Policy Development', 'System Upgrades']
+    },
+    {
+      icon: <GiCctvCamera />,
+      title: 'CCTV & Alarm Systems',
+      description: 'Installation and monitoring of advanced surveillance and alarm systems.',
+      features: ['24/7 Monitoring', 'Remote Access', 'Maintenance Services']
     }
   ];
 

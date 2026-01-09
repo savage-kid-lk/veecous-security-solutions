@@ -6,6 +6,9 @@ import useScrollObserver from '../components/useScrollObserver';
 import { AccreditationGrid } from '../components/AccreditationBadge';
 import { FaShieldAlt, FaUserShield, FaCrown, FaCar, FaPeopleArrows, FaCalendarAlt } from 'react-icons/fa';
 import '../styles/Home.css';
+import frontTeamImage from '../media/teamImage.jpeg';
+import frontTEamImage from '../media/teamBackImage.jpeg';
+import officeFront from '../media/veecous-security-solutions-building.jpeg';
 
 const Home = () => {
   useScrollObserver();
@@ -13,7 +16,7 @@ const Home = () => {
   const services = [
     {
       icon: <FaUserShield />,
-      title: 'Armed and Unamed Response',
+      title: 'Armed and Unarmed Response',
       desc: 'Rapid deployment tactical teams on standby 24/7.'
     },
     {
@@ -52,7 +55,7 @@ const Home = () => {
         title="Veecious" 
         subtitle="Security Solutions (PTY)Ltd"
         description="Providing elite protection services, tactical response, and integrated security systems for residential and corporate clients."
-        backgroundImage="https://images.pexels.com/photos/532001/pexels-photo-532001.jpeg"
+        backgroundImage="https://wallpapercave.com/wp/wp2444570.jpg"
         showButtons={true}
         height="100vh"
       />
@@ -73,6 +76,25 @@ const Home = () => {
         <div className="container">
           <div className="section-header scroll-hidden">
             <h2 className="section-title">Our Capabilities</h2>
+            
+            <div className="capabilities-gallery">
+              <img 
+                src={frontTeamImage} 
+                alt="Tactical Team" 
+                className="cap-img"
+              />
+              <img 
+                src={officeFront}
+                alt="Security Technology" 
+                className="cap-img"
+              />
+              <img 
+                src={frontTEamImage}
+                alt="Patrol Vehicle" 
+                className="cap-img"
+              />
+            </div>
+
             <p className="section-subtitle">Comprehensive security tailored to your needs</p>
           </div>
           <div className="services-grid">

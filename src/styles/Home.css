@@ -11,6 +11,49 @@
   background-color: var(--black-secondary);
 }
 
+/* New Gallery Styles */
+.capabilities-gallery {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin: 30px 0;
+  flex-wrap: wrap;
+}
+
+.cap-img {
+  width: 250px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid var(--blue-medium);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+}
+
+.cap-img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+  border-color: var(--blue-light);
+}
+
+/* Responsive Images */
+@media (max-width: 768px) {
+  .capabilities-gallery {
+    gap: 15px;
+  }
+  .cap-img {
+    width: 45%; /* Shows 2 per row roughly or scales down */
+    height: 120px;
+  }
+}
+
+@media (max-width: 480px) {
+  .cap-img {
+    width: 100%; /* Stack vertically on small phones */
+    height: 180px;
+  }
+}
+
 .services-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));

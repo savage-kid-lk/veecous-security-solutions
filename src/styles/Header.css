@@ -9,11 +9,12 @@
   border-bottom: 1px solid transparent;
 }
 
-/* Scrolled State: Deep Navy + Glass Blur */
+/* Scrolled State */
 .header.scrolled {
-  background: rgba(10, 25, 47, 0.9); /* Tactical Navy */
+  background: rgba(10, 25, 47, 0.95);
   backdrop-filter: blur(15px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  -webkit-backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
 }
 
@@ -26,7 +27,7 @@
 }
 
 .header.scrolled .header-content {
-  height: 70px; /* Shrinks on scroll */
+  height: 70px;
 }
 
 /* --- Logo Styling --- */
@@ -34,24 +35,24 @@
   text-decoration: none;
   display: flex;
   align-items: center;
+  z-index: 1002; /* Above mobile menu */
 }
 
 .logo-placeholder {
   display: flex;
-  align-items: center; /* Aligns image and text vertically */
-  gap: 15px; /* Space between image and text */
+  align-items: center;
+  gap: 12px;
 }
 
 .logo-image {
-  width: 50px;       /* Fixed width */
-  height: 50px;      /* Fixed height */
-  object-fit: cover; /* Ensures image doesn't stretch */
-  border-radius: 50%; /* Makes it a circle */
-  border: 2px solid var(--blue-medium); /* Blue border around the circle */
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid var(--blue-medium);
   transition: all 0.3s ease;
 }
 
-/* Slightly smaller logo on scroll */
 .header.scrolled .logo-image {
   width: 40px;
   height: 40px;
@@ -83,7 +84,7 @@
   margin-top: 4px;
 }
 
-/* --- Navigation --- */
+/* --- Desktop Navigation --- */
 .nav-list {
   display: flex;
   list-style: none;
@@ -99,6 +100,13 @@
   font-size: 0.9rem;
   position: relative;
   transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-icon {
+  display: none; /* Hidden on Desktop */
 }
 
 .nav-link::after {
@@ -120,7 +128,7 @@
   width: 100%;
 }
 
-/* --- Mobile Menu --- */
+/* --- Mobile Menu Button --- */
 .mobile-menu-btn {
   display: none;
   flex-direction: column;
@@ -128,41 +136,149 @@
   border: none;
   cursor: pointer;
   padding: 10px;
+  z-index: 1002;
+  gap: 5px;
 }
 
 .mobile-menu-btn span {
   width: 25px;
   height: 2px;
   background: var(--white);
-  margin: 3px 0;
   transition: 0.3s;
+  border-radius: 2px;
 }
 
-@media (max-width: 768px) {
+/* Hamburger Animation */
+.mobile-menu-btn.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.mobile-menu-btn.active span:nth-child(2) {
+  opacity: 0;
+}
+.mobile-menu-btn.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* --- Mobile Menu Styles & Animation --- */
+.mobile-menu-bg {
+  display: none; /* Hidden on Desktop */
+}
+
+@media (max-width: 992px) { /* Tablet & Mobile Breakpoint */
+  .mobile-menu-btn { 
+    display: flex; 
+  }
+
   .logo-text { font-size: 1.2rem; }
+  .logo-subtext { font-size: 0.5rem; letter-spacing: 1px; }
   .logo-image { width: 40px; height: 40px; }
-  
-  .mobile-menu-btn { display: flex; }
 
   .nav {
     position: fixed;
     top: 0;
     left: -100%;
-    width: 85%;
+    width: 100%; /* Full width on mobile */
     height: 100vh;
-    background: var(--navy-header);
+    background: #020617; /* Very Dark Navy */
     padding-top: 100px;
-    padding-left: 30px;
-    transition: left 0.3s ease;
-    box-shadow: 10px 0 30px rgba(0,0,0,0.8);
+    transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1001;
+    overflow: hidden; /* For animation containment */
   }
 
-  .nav.open { left: 0; }
+  .nav.open { 
+    left: 0; 
+  }
 
   .nav-list {
     flex-direction: column;
-    gap: 25px;
+    gap: 0;
+    width: 100%;
+    padding: 0 20px;
+    position: relative;
+    z-index: 2; /* Above animation */
   }
 
-  .nav-link { font-size: 1.2rem; }
+  .nav-list li {
+    width: 100%;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .nav-link {
+    font-size: 1.3rem;
+    padding: 20px 0;
+    width: 100%;
+  }
+
+  .nav-icon {
+    display: inline-flex; /* Visible on Mobile */
+    color: var(--blue-medium);
+    font-size: 1.4rem;
+  }
+
+  /* --- Mobile Background Animation (Tactical Crosshairs) --- */
+  .mobile-menu-bg {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.3;
+    pointer-events: none;
+  }
+
+  /* Crosshair Shapes */
+  .crosshair {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--blue-dark);
+    border-radius: 50%;
+  }
+  .crosshair::after, .crosshair::before {
+    content: '';
+    position: absolute;
+    background: var(--blue-dark);
+  }
+  .crosshair::after { top: 50%; left: -5px; width: 50px; height: 1px; }
+  .crosshair::before { left: 50%; top: -5px; height: 50px; width: 1px; }
+
+  /* Moving Elements */
+  .c1 { top: 20%; left: 10%; animation: floatCrosshair 15s infinite linear; }
+  .c2 { top: 60%; right: 10%; animation: floatCrosshair 20s infinite reverse linear; }
+  .c3 { bottom: 10%; left: 30%; animation: floatCrosshair 12s infinite linear; }
+
+  .star {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--blue-light);
+    border-radius: 50%;
+    box-shadow: 0 0 10px var(--blue-light);
+  }
+
+  .s1 { top: 15%; right: 20%; animation: blinkFloat 5s infinite; }
+  .s2 { top: 45%; left: 40%; animation: blinkFloat 7s infinite; }
+  .s3 { bottom: 30%; right: 40%; animation: blinkFloat 6s infinite; }
+
+  @keyframes floatCrosshair {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    33% { transform: translate(30px, 50px) rotate(120deg); }
+    66% { transform: translate(-20px, 80px) rotate(240deg); }
+    100% { transform: translate(0, 0) rotate(360deg); }
+  }
+
+  @keyframes blinkFloat {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.5); }
+  }
+}
+
+/* Foldable Devices */
+@media (max-width: 350px) {
+  .logo-text { font-size: 1rem; }
+  .logo-image { width: 35px; height: 35px; }
+  .nav-link { font-size: 1.1rem; }
 }

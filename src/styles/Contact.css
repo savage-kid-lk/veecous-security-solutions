@@ -58,9 +58,7 @@
   transition: 0.3s;
 }
 
-.method-content a:hover {
-  color: var(--blue-light);
-}
+.method-content a:hover { color: var(--blue-light); }
 
 .company-legal {
   margin-top: 20px;
@@ -68,16 +66,8 @@
   border-top: 2px solid var(--blue-medium);
 }
 
-.company-legal h3 {
-  color: var(--white);
-  margin-bottom: 10px;
-  font-size: 1.1rem;
-}
-
-.company-legal p {
-  color: #666;
-  font-size: 0.9rem;
-}
+.company-legal h3 { color: var(--white); margin-bottom: 10px; font-size: 1.1rem; }
+.company-legal p { color: #666; font-size: 0.9rem; }
 
 /* Form Styles */
 .contact-form {
@@ -87,10 +77,7 @@
   border-top: 4px solid var(--blue-medium);
 }
 
-.contact-form h2 {
-  color: var(--white);
-  margin-bottom: 25px;
-}
+.contact-form h2 { color: var(--white); margin-bottom: 25px; }
 
 .form-row {
   display: grid;
@@ -98,9 +85,7 @@
   gap: 20px;
 }
 
-.form-group {
-  margin-bottom: 20px;
-}
+.form-group { margin-bottom: 20px; }
 
 .form-group input, .form-group textarea {
   width: 100%;
@@ -111,6 +96,7 @@
   color: var(--white);
   font-family: inherit;
   transition: 0.3s;
+  font-size: 16px; /* Prevents zoom on iPhone */
 }
 
 .form-group input:focus, .form-group textarea:focus {
@@ -132,9 +118,7 @@
   transition: 0.3s;
 }
 
-.submit-btn:hover {
-  background: var(--blue-dark);
-}
+.submit-btn:hover { background: var(--blue-dark); }
 
 /* Emergency Banner */
 .emergency-banner-section {
@@ -154,11 +138,7 @@
   gap: 20px;
 }
 
-.emergency-banner h2 {
-  color: white;
-  text-transform: uppercase;
-  margin: 0;
-}
+.emergency-banner h2 { color: white; text-transform: uppercase; margin: 0; }
 
 .emergency-btn {
   background: white;
@@ -179,7 +159,13 @@
   box-shadow: 0 10px 20px rgba(0,0,0,0.5);
 }
 
-@media (max-width: 768px) {
-  .contact-grid, .form-row { grid-template-columns: 1fr; }
+/* Responsiveness */
+@media (max-width: 992px) {
+  .contact-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 600px) {
+  .form-row { grid-template-columns: 1fr; }
   .contact-form { padding: 25px; }
+  .emergency-btn { width: 100%; justify-content: center; font-size: 1.1rem; }
 }
