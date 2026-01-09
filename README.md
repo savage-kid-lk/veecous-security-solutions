@@ -1,70 +1,59 @@
-# Getting Started with Create React App
+# Veecious Security Solutions Website
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A professional, responsive single-page application (SPA) developed for Veecious Security Solutions (PTY) Ltd. This website showcases the company's security services, training college offerings, and accreditation status using a modern, tactical design theme.
 
-## Available Scripts
+## Project Overview
 
-In the project directory, you can run:
+This project is built using React.js and features a custom-built design system focused on a "tactical security" aesthetic. It includes fully responsive layouts that adapt from foldable devices to large desktop screens, dynamic scroll animations, and direct integration with WhatsApp for client inquiries.
 
-### `npm start`
+## Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Core Functionality
+* **Responsive Navigation:** Custom header with a glass-morphism effect that changes state on scroll. Includes a mobile-specific hamburger menu with background animations.
+* **Dynamic Hero Sections:** Reusable hero component with overlay effects and customizable text/images for each page.
+* **Scroll Animations:** Custom Component (`useScrollObserver`) that triggers bi-directional fade and slide animations as elements enter or leave the viewport.
+* **Direct Communication:** "Request Quote" buttons automatically format messages and redirect users to the company's WhatsApp business line.
+* **Emergency Call-to-Action:** prominent emergency hotline buttons available throughout the user journey.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Pages
+* **Home:** Overview of capabilities, accreditations (PSIRA, SAPS, SASSETA), and core value propositions.
+* **About Us:** Company history, mission statement, core values, and registration details.
+* **Services:** Detailed breakdown of security offerings including Armed Response, VIP Protection, and Crowd Control.
+* **Training:** dedicated section for the Training College, featuring PSIRA grade information, firearm competency pricing tables, and training galleries.
+* **Contact:** Contact form interface and detailed business contact information.
 
-### `npm test`
+## Technologies Used
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* **Frontend Framework:** React.js
+* **Routing:** React Router v6
+* **Styling:** CSS3 (Custom Properties/Variables, Flexbox, CSS Grid)
+* **Icons:** React Icons (FontAwesome, Material Design, Game Icons)
+* **Animations:** Native CSS Keyframes and Transitions
 
-### `npm run build`
+## Installation and Setup
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+To run this project locally, follow these steps:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Clone the repository
+   git clone https://github.com/yourusername/veecious-security-website.git
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. Navigate to the project directory
+   cd veecious-security-website
 
-### `npm run eject`
+3. Install dependencies
+   npm install
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+4. Start the development server
+   npm start
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The application will launch in your browser at http://localhost:3000.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Customization
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Color Palette
+The site uses a centralized CSS variable system defined in `src/styles/App.css`. You can adjust the theme by modifying the `:root` variables for `--black-primary`, `--navy-header`, and `--blue-medium`.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Content Updates
+* **Services:** Update the `services` array in `src/pages/Services.js`.
+* **Pricing:** Update the pricing tables in `src/pages/Training.js`.
+* **Images:** Replace assets in the `src/media/` folder and update import paths in the respective pages.
